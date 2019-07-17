@@ -33,11 +33,14 @@ gem 'jbuilder', '~> 2.5'
 # Organise ActiveRecord model into a tree structure 
 gem 'ancestry'
 
+gem 'slim'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'dotenv-rails'
@@ -46,6 +49,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

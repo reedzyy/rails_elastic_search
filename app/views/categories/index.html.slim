@@ -1,0 +1,19 @@
+.card.border-primary.m-3
+  .card-header 
+    | Categories
+    div 
+      = link_to 'Create category', new_category_path
+  .card-body
+    table.table
+      thead
+        tr
+          th = 'Name'
+          th = 'Parent'
+          th colspan="2"
+      tbody 
+        - @categories.each do |category|
+          tr
+            td = link_to category.name, category
+            td = category.parent ? link_to(category.parent.name, category.parent) : 'None'
+            td.text-right = link_to 'Edit', edit_category_path(category), class: 'btn btn-secondary'
+            td.text-right = link_to 'Destroy', category, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

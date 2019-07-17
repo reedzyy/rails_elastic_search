@@ -1,0 +1,14 @@
+h1 Edit category
+
+= form_for @category do |form|
+  div
+    = form.label :name
+    = form.text_field :name, required: true
+  div
+    = form.label :parent
+    = form.select(:parent_id, Category.all.map { |w| [w.name, w.id] }, { include_blank: 'None' })
+  div
+    = link_to 'Cancel', categories_path
+    = form.button 'Save', type: :submit
+
+
