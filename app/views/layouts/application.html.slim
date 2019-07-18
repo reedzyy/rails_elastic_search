@@ -19,4 +19,8 @@ html
             a class="nav-link" href="/categories" Categories
           li class="nav-item active"
             a class="nav-link" href="/items" Items
+        
+        = form_for search_path, url: search_path, html: { class: "form-inline my-2 my-lg-0" }, method: :get do |f|
+          = text_field_tag :q, params[:q], class: "form-control mr-sm-2"
+          = submit_tag "Search", name: nil, class: "btn btn-secondary my-2 my-sm-0"
     = yield

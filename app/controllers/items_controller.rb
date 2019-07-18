@@ -37,6 +37,10 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def search
+    @items = params[:q].nil? ? [] : Item.search(params[:q])
+  end
+
   private
 
   def set_item
