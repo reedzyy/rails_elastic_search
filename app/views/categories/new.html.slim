@@ -1,14 +1,19 @@
-h1 New category
-
-= form_for @category do |form|
-  div
-    = form.label :name
-    = form.text_field :name, required: true
-  div
-    = form.label :parent
-    = form.select(:parent_id, Category.all.map { |w| [w.name, w.id] }, { include_blank: 'None' })
-  div
-    = link_to 'Cancel', categories_path
-    = form.button 'Create', type: :submit
+.card.border-primary.m-3
+  .card-header 
+    h5 Create new category
+  .card-body
+    = form_for @category do |form|
+      .col-sm-5
+        .form-group
+          .form-label
+            = form.label :name
+          = form.text_field :name, required: true, class: "form-control"
+        .form-group
+          .form-label
+            = form.label :parent
+          = form.select(:parent_id, Category.all.map { |w| [w.name, w.id] }, { include_blank: 'None' }, class: "form-control")
+        div
+          = link_to 'Cancel', categories_path, class: "btn btn-outline-primary mr-3"
+          = form.button 'Create', type: :submit, class: 'btn btn-primary ml-auto'
 
 

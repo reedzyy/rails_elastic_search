@@ -1,8 +1,8 @@
 .card.border-primary.m-3
   .card-header 
-    | Items
-    div 
-      = link_to 'Create item', new_item_path
+    h5
+      span Items
+      = link_to 'Create new item', new_item_path, class: "btn btn-outline-primary ml-3"
   .card-body
     table.table
       thead

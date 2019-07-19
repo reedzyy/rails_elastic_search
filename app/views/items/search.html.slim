@@ -1,20 +1,16 @@
 .card.border-primary.m-3
   .card-header 
-    = form_for search_path, method: :get do |f|
-      = text_field_tag :q, params[:q]
-      = submit_tag "Search", name: nil
+    = form_for search_path, html: { class: "form-inline" }, method: :get do |f|
+      = text_field_tag :q, params[:q], class: "form-control mr-sm-2"
+      = submit_tag "Search", name: nil, class: 'btn btn-primary'
   .card-body
     table.table
       thead
         tr
           th = 'Title'
           th = 'Category'
-          th colspan="2"
       tbody 
         - @items.each do |item|
           tr
-            td = item._source.title
-            / td = link_to item.title, item
-            / td = item.category ? link_to(item.category.name, item.category) : 'None'
-            / td.text-right = link_to 'Edit', edit_item_path(item), class: 'btn btn-secondary'
-            / td.text-right = link_to 'Destroy', item, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+            td = link_to(item.title, item)
+            td = item.category ? link_to(item.category.name, item.category) : 'None'

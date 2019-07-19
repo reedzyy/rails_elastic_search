@@ -15,13 +15,14 @@ class Item < ApplicationRecord
     __elasticsearch__.search(
       {
         query: {
-          multi_match: {
-            query: query,
-            fields: ['title', 'description']
+          query_string: {
+            query: "*#{query}*",
+            fields: ['title^2', 'description^1'],
+            type:   'phrase_prefix'
           }
         }
       }
     )
   end
 end
-Item.import
+# Item.import

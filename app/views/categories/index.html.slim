@@ -1,8 +1,8 @@
 .card.border-primary.m-3
   .card-header 
-    | Categories
-    div 
-      = link_to 'Create category', new_category_path
+    h5 
+      span Categories
+      = link_to 'Create category', new_category_path, class: "btn btn-outline-primary ml-3"
   .card-body
     table.table
       thead

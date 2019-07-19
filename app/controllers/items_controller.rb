@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = params[:q].nil? ? [] : Item.search(params[:q])
+    @items = params[:q].nil? ? [] : Item.search(params[:q]).records
   end
 
   private
